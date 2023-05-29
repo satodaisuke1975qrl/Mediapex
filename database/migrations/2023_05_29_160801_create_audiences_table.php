@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('t_v_s', function (Blueprint $table) {
+        Schema::create('audiences', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->time('time');
-            $table->string('content');
+            $table->string('name');
+            $table->string('email');
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('t_v_s');
+        Schema::dropIfExists('audiences');
     }
 };

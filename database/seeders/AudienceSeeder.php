@@ -6,8 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-
-class TVSeeder extends Seeder
+class AudienceSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,9 +16,9 @@ class TVSeeder extends Seeder
         DB::table('audiences')->insert(
             [
                 [
-                    'title' =>'牧瀬',
-                    'time' =>'00:00',
-                    'content' => '番組概要はこちら'
+                    'name' =>'牧瀬',
+                    'email' =>'makise@makise.com',
+                    'password' => 'password',
                 ]
             ]);
     }

@@ -19,7 +19,13 @@ class AudienceSeeder extends Seeder
                     'name' =>'牧瀬',
                     'email' =>'makise@makise.com',
                     'password' => 'password',
+                ],
+                [
+                    'name' =>'高橋',
+                    'email' =>'tk@hasi.com',
+                    'password' => 'passwwww',
                 ]
+
             ]);
     }
 }

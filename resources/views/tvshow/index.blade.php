@@ -3,7 +3,6 @@
         <h2 class="font-bold text-xl text-gray-800 leading-tight">
             5/31（水）番組一覧
         </h2>
-        <a href="https://seekvectorlogo.com/tv-asahi-logo-vector-svg/" target="_blank"><img src="https://seekvectorlogo.com/wp-content/uploads/2022/01/tv-asahi-vector-logo.png" class="w-30 h-20 text-right"/></a>
     </x-slot>
 <table class="table-auto w-full text-left whitespace-no-wrap">
 

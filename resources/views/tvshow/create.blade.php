@@ -1,4 +1,9 @@
-<h1>create</h1>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            新規登録
+        </h2>
+    </x-slot>
 
 <form action="{{ route('tvshow.store') }}" method="post">
     @csrf
@@ -34,3 +39,5 @@
     {{-- <input type="submit" value="送信"> --}}
     </div>
 </form>
+
+</x-app-layout>

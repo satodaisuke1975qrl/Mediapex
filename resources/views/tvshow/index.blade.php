@@ -1,5 +1,6 @@
 <x-app-layout>
     <x-slot name="header" class="">
+        <img src="../../tv-asahi-logo.png" alt="" width="200" height="100">
         <h2 class="font-bold text-xl text-gray-800 leading-tight">
             5/31（水）番組一覧
         </h2>

@@ -1,9 +1,12 @@
 <h1>show</h1>
 
-<div>{{ $tv->id }}</div>
-<div>{{ $tv->time }}</div>
-<div>{{ $tv->title }}</div>
-<div>{{ $tv->content }}</div><br>
+<div>放送時間<br>
+    {{ $tv->time }}</div>
+<div>番組名<br>
+    {{ $tv->title }}</div>
+<div>番組概要<br>
+    {{ $tv->content }}</div><br>
+
 
 <input type="button" value="編集" onclick="location.href='{{ route('tvshow.edit' , $tv->id)}}'">
 

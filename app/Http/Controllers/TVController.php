@@ -9,8 +9,8 @@ class TVController extends Controller
 {
     public function index()
     {
-        $t_v_s = TV::all();
-        return view('tvshow.index', compact('t_v_s'));
+        $tvs = TV::all();
+        return view('tvshow.index', compact('tvs'));
     }
 
     /**

@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CafeSeeder::class,
             AudienceSeeder::class,
+            GenresSeeder::class,
             InitializeCoachesAndTeamsSeeder::class,
             InitializePlayersTableSeeder::class,
             // 各テーブルのデータを入れてから中間のテーブルのダミーを入れる

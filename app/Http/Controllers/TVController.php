@@ -30,6 +30,7 @@ class TVController extends Controller
         $tv->title = $request->title;
         $tv->time = $request->time;
         $tv->content = $request->content;
+        $tv->genre_id = $request->genre_id;
 
         $tv->save();
 
@@ -68,6 +69,8 @@ class TVController extends Controller
         $tv->title = $request->title;
         $tv->time = $request->time;
         $tv->content = $request->content;
+        $tv->genre_id = $request->genre_id;
+
 
         $tv->save();
 

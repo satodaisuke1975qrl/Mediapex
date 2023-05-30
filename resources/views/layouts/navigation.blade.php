@@ -81,9 +81,14 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
-        <div class="pt-2 pb-3 space-y-1">
+        {{-- <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('cafes.index')" :active="request()->routeIs('cafes.index')">
                 {{ __('カフェ一覧') }}
+            </x-responsive-nav-link>
+        </div> --}}
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('tvshow.index')" :active="request()->routeIs('tvshow.index')">
+                {{ __('テレビ朝日番組表') }}
             </x-responsive-nav-link>
         </div>
 

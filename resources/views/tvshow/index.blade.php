@@ -1,8 +1,6 @@
 <x-app-layout>
     <x-slot name="header" class="">
-        <a href="https://www.tv-asahi.co.jp/" target="_blank"><img
-                src="https://seekvectorlogo.com/wp-content/uploads/2022/01/tv-asahi-vector-logo.png"
-                class="w-30 h-20" /></a>
+        <a href="https://www.tv-asahi.co.jp/" target="_blank"><img src="https://seekvectorlogo.com/wp-content/uploads/2022/01/tv-asahi-vector-logo.png" class="w-30 h-20" /></a>
         <h2 class="font-bold text-xl text-gray-800 leading-tight">
             5/31（水）番組一覧
         </h2>

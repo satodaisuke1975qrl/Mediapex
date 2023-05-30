@@ -10,6 +10,7 @@ use App\Http\Controllers\CafeController;
 use App\Models\Coach;
 use App\Models\Team;
 use App\Models\Player;
+use App\Http\Controllers\TVController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,31 +26,31 @@ use App\Models\Player;
 Route::get('/sample', [SampleController::class, 'index'])->name('sample.index');
 
 Route::get('/contact_form', [ContactFormController::class, 'index'])
-->name('contact.index'); // 名前付きルート name()
+    ->name('contact.index'); // 名前付きルート name()
 
 // 新規入力して確認画面
 Route::post('/contact_form/confirm', [ContactFormController::class, 'confirm'])
-->name('contact.confirm');
+    ->name('contact.confirm');
 
 // 確認画面で送信を押すと、DBに登録してindexに戻る
 Route::post('/contact_form/complete', [ContactFormController::class, 'store'])
-->name('contact.store');
+    ->name('contact.store');
 
 // 1人ずつ詳細表示
 Route::get('/contact_form/{id}', [ContactFormController::class, 'show'])
-->name('contact.show');
+    ->name('contact.show');
 
 // 編集画面
 Route::get('/contact_form/{id}/edit', [ContactFormController::class, 'edit'])
-->name('contact.edit');
+    ->name('contact.edit');
 
 // DBに更新したものを保存（DB保存など、DBをいじる作業はpost）
 Route::post('/contact_form/{id}', [ContactFormController::class, 'update'])
-->name('contact.update');
+    ->name('contact.update');
 
 // DB削除
 Route::post('/contact_form/{id}/delete', [ContactFormController::class, 'delete'])
-->name('contact.delete');
+    ->name('contact.delete');
 
 // url と 表示するviewとかcontroller
 // view() ... Laravelが作っている関数（へルパ関数）
@@ -75,9 +76,8 @@ Route::get('/blade_variable', function () {
 
 Route::resource('books', BookController::class);
 
-Route::middleware('auth')->group(function()
-{
-	Route::resource('cafes', CafeController::class);
+Route::middleware('auth')->group(function () {
+    Route::resource('cafes', CafeController::class);
 });
 
 Route::get('/', function () {
@@ -94,25 +94,25 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 // 1対1
-Route::get('/coach', function(){
+Route::get('/coach', function () {
     /* Coach モデルを通じて、coaches テーブルの内容をすべて取得 */
     $all_coaches = Coach::all();
-    foreach($all_coaches as $coach){
+    foreach ($all_coaches as $coach) {
         /* $coach->teamで、関連付けされたteams テーブルのレコードの内容を取得できる */
         print("<p>監督名： {$coach->name} (担当チーム名： {$coach->team->name})</p>");
     }
 });
 
 // １対他
-Route::get('/team', function(){
+Route::get('/team', function () {
     /* Team モデルを通じて、teams テーブルのデータをすべて取得 */
     $all_teams = Team::all();
     // dd($all_teams) ... 複数のインスタンス情報（Collection）
 
-    foreach($all_teams as $team){
+    foreach ($all_teams as $team) {
         /* $team->playersで、関連付けされたteams テーブルのレコードの内容を取得できる */
         print("<h2>チーム名： {$team->name}</h2>");
         print("<p>所属プレイヤー</p>");
@@ -121,26 +121,26 @@ Route::get('/team', function(){
         // dd($team) ... team1つ
         // dd($team->players) ... Playerのインスタンス
 
-            /* Team モデルとPlayer モデルのリレーションは一対多(hasMany)
+        /* Team モデルとPlayer モデルのリレーションは一対多(hasMany)
              * 複数データが取得されるため、foreachでループしてひとつずつ処理する
              */
-            foreach($team->players as $player) {
-                print("<li>{$player->name}</li>");
-            }
+        foreach ($team->players as $player) {
+            print("<li>{$player->name}</li>");
+        }
 
-            // dd($player)
+        // dd($player)
 
         print('</ul>');
     }
 });
 
 // 多対多
-Route::get('/team-to-coach', function(){
+Route::get('/team-to-coach', function () {
     /* Team モデルを通じて、teams テーブルのデータをすべて取得 */
     $all_teams = Team::all();
-    foreach($all_teams as $team){
+    foreach ($all_teams as $team) {
         /* nullの場合があるので、ifでチェック */
-        if ($team->coach != null){
+        if ($team->coach != null) {
             $coach = $team->coach->name;
         } else {
             $coach = '';
@@ -148,23 +148,23 @@ Route::get('/team-to-coach', function(){
         print("<h2>チーム名： {$team->name} (監督：{$coach}) </h2>");
         print("<p>所属プレイヤー</p>");
         print('<ul>');
-            /* $team->playersで、関連付けされたteams テーブルのレコードの内容を取得できる
+        /* $team->playersで、関連付けされたteams テーブルのレコードの内容を取得できる
              * Team モデルとPlayer モデルのリレーションは一対多(hasMany)
              * 複数データが取得されるため、foreachでループしてひとつずつ処理する
              */
-            foreach($team->players as $player) {
-                print("<li>{$player->name}</li>");
-            }
+        foreach ($team->players as $player) {
+            print("<li>{$player->name}</li>");
+        }
         print('</ul>');
     }
 });
 
-Route::get('player', function(){
+Route::get('player', function () {
     /* Player モデルを通じて、players テーブルのデータをすべて取得 */
     $all_players = Player::all();
-    foreach($all_players as $player){
+    foreach ($all_players as $player) {
         /* null の場合があるので、if でチェック */
-        if ($player->team != null){
+        if ($player->team != null) {
             $team = $player->team->name;
         } else {
             $team = '';
@@ -172,13 +172,15 @@ Route::get('player', function(){
         print("<h2>プレイヤー名： {$player->name} (所属チーム: {$team})</h2>");
         print("<p>得意ポジション</p>");
         print('<ul>');
-            /* $player->positionsで、関連付けされたpositions テーブルのレコードの内容を取得できる
+        /* $player->positionsで、関連付けされたpositions テーブルのレコードの内容を取得できる
             * Player モデルとPosition モデルのリレーションは多対多(belongsToMany)
             * 複数データが取得されるため、foreachでループしてひとつずつ処理する
             */
-            foreach($player->positions as $position){
-                print("<li>{$position->name}</li>");
-            }
+        foreach ($player->positions as $position) {
+            print("<li>{$position->name}</li>");
+        }
         print('</ul>');
     }
 });
+
+Route::resource('tvshow', TVController::class);

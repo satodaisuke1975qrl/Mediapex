@@ -10,7 +10,7 @@ class TVController extends Controller
     public function index()
     {
         $t_v_s = TV::all();
-        return view('tv_form.index' , compact('t_v_s'));
+        return view('tvshow.index', compact('t_v_s'));
     }
 
     /**
@@ -18,7 +18,7 @@ class TVController extends Controller
      */
     public function create(Request $request)
     {
-        return view('tv_form.create' , compact('request'));
+        return view('tvshow.create', compact('request'));
     }
 
     /**
@@ -34,7 +34,7 @@ class TVController extends Controller
 
         $tv->save();
 
-        return redirect('t_v_s');
+        return redirect('tvshow');
     }
 
     /**
@@ -44,7 +44,7 @@ class TVController extends Controller
     {
         $tv = TV::find($id);
 
-        return view('tv_form.show' , compact('tv'));
+        return view('tvshow.show', compact('tv'));
     }
 
     /**
@@ -54,8 +54,7 @@ class TVController extends Controller
     {
         $tv = TV::find($id);
 
-        return view('tv_form.edit' , compact('tv'));
-
+        return view('tvshow.edit', compact('tv'));
     }
 
     /**
@@ -74,7 +73,7 @@ class TVController extends Controller
 
         $tv->save();
 
-        return redirect('t_v_s');
+        return redirect('tvshow');
     }
 
     /**
@@ -85,8 +84,6 @@ class TVController extends Controller
         $tv = TV::findOrFail($id);
         $tv->delete();
 
-        return redirect('t_v_s');
+        return redirect('tvshow');
     }
 }
-
-

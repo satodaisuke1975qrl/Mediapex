@@ -18,7 +18,7 @@
 @foreach ($tvs as $tv)
   <tr>
     <td class="px-4 py-3">{{ $tv->time }}</td>
-    <td class="px-4 py-3">{{ $tv->title }}</td>
+    <td class="px-4 py-3">{{ $tv->genre->genrename }} : {{ $tv->title }}</td>
     <td class="text-center">
         <form action="{{ route('tvshow.show' , $tv->id) }}" method="get">
             <button>詳細表示</button>

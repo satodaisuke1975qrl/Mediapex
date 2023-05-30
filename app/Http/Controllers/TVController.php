@@ -10,7 +10,8 @@ class TVController extends Controller
     public function index()
     {
         $tvs = TV::all();
-        return view('tvshow.index', compact('tvs'));
+        $genre = TV::with('genre');
+        return view('tvshow.index', compact('tvs','genre'));
     }
 
     /**
@@ -30,7 +31,7 @@ class TVController extends Controller
         $tv->title = $request->title;
         $tv->time = $request->time;
         $tv->content = $request->content;
-        // $tv->genre_id = $request->genre_id;
+        $tv->genre_id = $request->genre_id;
 
         $tv->save();
 
@@ -43,8 +44,9 @@ class TVController extends Controller
     public function show(string $id)
     {
         $tv = TV::find($id);
+        $genre = TV::with('genre')->where('id', $id);
 
-        return view('tvshow.show', compact('tv'));
+        return view('tvshow.show', compact('tv','genre'));
     }
 
     /**
@@ -68,7 +70,7 @@ class TVController extends Controller
         $tv->title = $request->title;
         $tv->time = $request->time;
         $tv->content = $request->content;
-        // $tv->genre_id = $request->genre_id;
+        $tv->genre_id = $request->genre_id;
 
 
         $tv->save();

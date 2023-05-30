@@ -5,7 +5,9 @@
 <div>番組名<br>
     {{ $tv->title }}</div>
 <div>番組概要<br>
-    {{ $tv->content }}</div><br>
+    {{ $tv->content }}</div>
+<div>{{ $tv->genre->genrename }}</div>
+<br>
 
 
 {{-- 管理者でログインした場合のみ編集ボタンを表示 --}}

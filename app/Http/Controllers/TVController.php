@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TV;
+use App\Models\Threaad;
 
 class TVController extends Controller
 {
@@ -11,6 +12,12 @@ class TVController extends Controller
     {
         $tvs = TV::all();
         return view('tvshow.index', compact('tvs'));
+    }
+
+    public function bbs()
+    {
+        $bbs = Threaad::all();
+        return view('tvshow.bbs', compact('bbs'));
     }
 
     /**
@@ -30,7 +37,7 @@ class TVController extends Controller
         $validateData = $request->validate([
             'title' => ['required', 'min:2', 'max:50'],
             'time' => ['required'],
-            'content' => ['required', 'min:2', 'max:50'],
+            'content' => ['required', 'min:2', 'max:100'],
             // 'genre_id' => ['required', 'min:1', 'max:5']
             ]);
 
@@ -51,7 +58,6 @@ class TVController extends Controller
     public function show(string $id)
     {
         $tv = TV::find($id);
-
         return view('tvshow.show', compact('tv'));
     }
 

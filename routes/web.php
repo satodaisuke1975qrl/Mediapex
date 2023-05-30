@@ -23,6 +23,8 @@ use App\Http\Controllers\TVController;
 |
 */
 
+Route::get('/bbs', [TVController::class, 'bbs'])->name('tvshow.bbs');
+
 Route::get('/sample', [SampleController::class, 'index'])->name('sample.index');
 
 Route::get('/contact_form', [ContactFormController::class, 'index'])
@@ -184,3 +186,8 @@ Route::get('player', function () {
 });
 
 Route::resource('tvshow', TVController::class);
+
+Route::get('tvshow/bbs', function(){
+    return view('tvshow.bbs');
+})->name('tvshow.bbs');
+

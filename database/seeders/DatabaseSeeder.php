@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         // DatabaseSeederの中でそれぞれのシーダーファイルを呼び出す
         $this->call([
             TVSeeder::class,
+            BSSSeeder::class,
             ContactsSeeder::class,
             UserSeeder::class,
             CafeSeeder::class,

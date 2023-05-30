@@ -29,7 +29,11 @@
 </tbody>
 </table>
 
-<form action="{{ route('tvshow.create' )}}">
+<form action="{{ route('tvshow.bbs')}}" method="get">
+    <button>感想入力</button>
+</form>
+
+<form action="{{ route('tvshow.create')}}">
     <button>新規入力</button>
 </form>
 

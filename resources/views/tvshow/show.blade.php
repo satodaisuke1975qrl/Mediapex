@@ -4,7 +4,6 @@
 <div>{{ $tv->time }}</div>
 <div>{{ $tv->title }}</div>
 <div>{{ $tv->content }}</div><br>
-@endif
 
 <a href="{{ route('tvshow.edit' , $tv->id) }}">編集</a><br>
 

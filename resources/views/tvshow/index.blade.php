@@ -1,7 +1,7 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            番組一覧
+    <x-slot name="header" class="">
+        <h2 class="font-bold text-xl text-gray-800 leading-tight">
+            5/31（水）番組一覧
         </h2>
     </x-slot>
 
@@ -11,7 +11,7 @@
     <tr>
       <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">放送時間</th>
       <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">番組名</th>
-      <th>詳細表示</th>
+      <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">詳細表示</th>
     </tr>
 </thead>
 <tbody>
@@ -21,7 +21,7 @@
     <td class="px-4 py-3">{{ $tv->title }}</td>
     <td class="text-center">
         <form action="{{ route('tvshow.show' , $tv->id) }}" method="get">
-            <button>詳細表示</button>
+            <button class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-4 focus:outline-none hover:bg-blue-600 rounded text-md">詳細表示</button>
         </form>
     </td>
   </tr>
@@ -29,8 +29,9 @@
 </tbody>
 </table>
 
+<br>
 <form action="{{ route('tvshow.create' )}}">
-    <button>新規入力</button>
+    <button class="flex mx-auto text-white bg-red-500 border-0 py-2 px-20 focus:outline-none hover:bg-red-600 rounded text-md">新規入力</button>
 </form>
 
 </x-app-layout>

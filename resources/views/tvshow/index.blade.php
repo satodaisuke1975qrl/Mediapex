@@ -11,7 +11,7 @@
     <td>{{ $tv->id }}</td>
     <td>{{ $tv->title }}</td>
     <td>
-        <form action="{{ route('t_v_s.show' , $tv->id) }}" method="get">
+        <form action="{{ route('tvshow.show' , $tv->id) }}" method="get">
             <button>詳細表示</button>
         </form>
     </td>
@@ -19,6 +19,6 @@
 @endforeach
 </table>
 
-<form action="{{ route('t_v_s.create' )}}">
+<form action="{{ route('tvshow.create' )}}">
     <button>新規入力</button>
 </form>

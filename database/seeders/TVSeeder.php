@@ -49,7 +49,7 @@ class TVSeeder extends Seeder
                     'title' => '大下容子ワイド！スクランブル',
                     'time' => '10:25',
                     'content' => 'スタジオの気鋭の識者たちが、視聴者に知っておいてもらいたい情報、抱いている疑問を深掘り解説!',
-                    'url' => 'https://www.tv-asahi.co.jp/scramble/'
+                    'url' => 'https://www.tv-asahi.co.jp/scramble/',
                     'genre_id' =>5
                 ],
                 [

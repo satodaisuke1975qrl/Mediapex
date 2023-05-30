@@ -21,7 +21,7 @@
 
 @if ($tv->url =='nullable')
     <td class="px-4 py-3">{{ $tv->title }}</td>
-@else <td class="px-4 py-3"><a href= "{{$tv->url}}" >{{ $tv->title }}</a></td>
+@else <td class="px-4 py-3"><a href= "{{$tv->url}}" >{{ $tv->title }}</a><img src="../../icon.png" alt=""></td>
 @endif
 
     <td class="text-center">

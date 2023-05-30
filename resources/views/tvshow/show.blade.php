@@ -1,4 +1,4 @@
-<h1>show</h1>
+<h1>番組詳細</h1>
 
 <div>放送時間<br>
     {{ $tv->time }}</div>

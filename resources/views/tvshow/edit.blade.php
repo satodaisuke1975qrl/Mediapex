@@ -1,4 +1,4 @@
-<h1>edit</h1>
+<h1>編集画面</h1>
 
 <form action="{{ route('tvshow.update' , $tv->id) }}" method="post">
     @csrf

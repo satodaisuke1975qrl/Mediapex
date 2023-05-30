@@ -26,6 +26,14 @@ class TVController extends Controller
      */
     public function store(Request $request)
     {
+
+        $validateData = $request->validate([
+            'title' => ['required', 'min:2', 'max:50'],
+            'time' => ['required'],
+            'content' => ['required', 'min:2', 'max:50'],
+            // 'genre_id' => ['required', 'min:1', 'max:5']
+            ]);
+
         $tv = new TV;
         $tv->title = $request->title;
         $tv->time = $request->time;
@@ -63,6 +71,12 @@ class TVController extends Controller
     public function update(Request $request, string $id)
     {
 
+        $validateData = $request->validate([
+            'title' => ['required', 'min:2', 'max:50'],
+            'time' => ['required'],
+            'content' => ['required', 'min:2', 'max:100'],
+            // 'genre_id' => ['required', 'min:1', 'max:5']
+            ]);
 
         $tv = TV::find($id);
         $tv->title = $request->title;

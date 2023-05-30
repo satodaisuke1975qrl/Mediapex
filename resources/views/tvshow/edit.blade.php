@@ -5,26 +5,30 @@
     @method('put')
     <div>
         <label for="title">番組タイトル</label>
-        <input type="text" id="title" name="title" value="{{ $tv->title }}">
+        <input type="text" size="40" id="title" name="title" value="{{ $tv->title }}">
         @if ($errors->has('title'))
         <p class="error">*{{ $errors->first('title') }}</p>
        @endif
     </div>
     <div>
         <label for="time">放送時間</label>
-        <input type="text" id="time" name="time" value="{{ $tv->time }}">
+        <input type="time" id="time" name="time" value="{{ $tv->time }}">
         @if ($errors->has('time'))
         <p class="error">*{{ $errors->first('time') }}</p>
        @endif
     </div>
     <div>
         <label for="content">番組内容</label>
-        <input type="text" id="content" name="content" value="{{ $tv->content }}">
+            <input type="hidden" name="mode" value="check">
+            <textarea name="content" cols="50" rows="5"><?php print( $tv -> content ); ?></textarea>
+        {{-- <textarea type="text" id="content" name="content" value="{{ $tv->content }}"></textarea> --}}
+        {{-- <input type="text" id="content" name="content" value="{{ $tv->content }}"> --}}
         @if ($errors->has('content'))
         <p class="error">*{{ $errors->first('content') }}</p>
        @endif
     </div>
     <div>
+        {{-- <input type="button" value="更新する" onclick="location.href='{{ route('tvshow.index' , $tv->id ) }}'"> --}}
         <input type="submit" value="更新する">
     </div>
 </form>

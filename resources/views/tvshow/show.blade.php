@@ -1,9 +1,12 @@
-<h1>show</h1>
+<h1>番組詳細</h1>
 
-<div>{{ $tv->id }}</div>
-<div>{{ $tv->time }}</div>
-<div>{{ $tv->title }}</div>
-<div>{{ $tv->content }}</div><br>
+<div>放送時間<br>
+    {{ $tv->time }}</div>
+<div>番組名<br>
+    {{ $tv->title }}</div>
+<div>番組概要<br>
+    {{ $tv->content }}</div><br>
+
 
 {{-- 管理者でログインした場合のみ編集ボタンを表示 --}}
 @can('admin')

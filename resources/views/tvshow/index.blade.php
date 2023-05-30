@@ -31,36 +31,6 @@
             @endforeach
         </tbody>
     </table>
-=======
-<table class="table-auto w-full text-left whitespace-no-wrap">
-
-<thead>
-    <tr>
-      <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">放送時間</th>
-      <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">番組名</th>
-      <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">詳細表示</th>
-    </tr>
-</thead>
-<tbody>
-@foreach ($tvs as $tv)
-  <tr>
-    <td class="px-4 py-3">{{ $tv->time }}</td>
-
-@if ($tv->url =='nullable')
-    <td class="px-4 py-3">{{ $tv->title }}</td>
-@else <td class="px-4 py-3"><a href= "{{$tv->url}}" >{{ $tv->title }}</a><img src="../../icon.png" alt=""></td>
-@endif
-
-    <td class="text-center">
-        <form action="{{ route('tvshow.show' , $tv->id) }}" method="get">
-            <button class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-4 focus:outline-none hover:bg-blue-600 rounded text-md">詳細表示</button>
-        </form>
-    </td>
-  </tr>
-@endforeach
-
-</tbody>
-</table>
 
 
     <br>

@@ -16,15 +16,15 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('cafes.index')" :active="request()->routeIs('cafes.index')">
                         {{ __('カフェ一覧') }}
                     </x-nav-link>
+                </div> --}}
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('tvshow.index')" :active="request()->routeIs('tvshow.index')">
                         {{ __('テレビ朝日番組表') }}
                     </x-nav-link>
-                </div>
                 </div>
             </div>
 

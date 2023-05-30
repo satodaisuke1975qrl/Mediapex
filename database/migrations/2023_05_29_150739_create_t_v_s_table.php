@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('t_v_s', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->time('time');
+            $table->string('time');
             $table->string('content');
             $table->timestamps();
         });

@@ -17,7 +17,12 @@
 @foreach ($tvs as $tv)
   <tr>
     <td class="px-4 py-3">{{ $tv->time }}</td>
+
+@if ($tv->url =='nullable')
     <td class="px-4 py-3">{{ $tv->title }}</td>
+@else <td class="px-4 py-3"><a href= "{{$tv->url}}" >{{ $tv->title }}</a></td>
+@endif
+
     <td class="text-center">
         <form action="{{ route('tvshow.show' , $tv->id) }}" method="get">
             <button class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-4 focus:outline-none hover:bg-blue-600 rounded text-md">詳細表示</button>
@@ -25,6 +30,7 @@
     </td>
   </tr>
 @endforeach
+
 </tbody>
 </table>
 

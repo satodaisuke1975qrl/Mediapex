@@ -15,6 +15,7 @@
             <tr>
                 <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">放送時間</th>
                 <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">番組名</th>
+                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">ジャンル</th>
                 <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">詳細表示</th>
             </tr>
         </thead>
@@ -22,7 +23,13 @@
             @foreach ($tvs as $tv)
                 <tr>
                     <td class="px-4 py-3">{{ $tv->time }}</td>
+
+                    @if ($tv->url =='nullable')
                     <td class="px-4 py-3">{{ $tv->title }}</td>
+                    @else <td class="px-4 py-3"><a href= "{{$tv->url}}" >{{ $tv->title }}</a></td>
+                    @endif
+
+                    <td class="px-4 py-3">{{ $tv->genre->genrename }}</td>
                     <td class="text-center">
                         <form action="{{ route('tvshow.show', $tv->id) }}" method="get">
                             <button

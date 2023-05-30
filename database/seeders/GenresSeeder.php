@@ -16,25 +16,25 @@ class GenresSeeder extends Seeder
         DB::table('genres')->insert(
             [
                 [
-                    'genrename' =>'ドラマ/映画',
+                    'genrename'=>'ドラマ/映画',
                 ],
                 [
-                    'genrename' =>'バラエティ',
+                    'genrename'=>'バラエティ',
                 ],
                 [
-                    'genrename' =>'音楽',
+                    'genrename'=>'音楽',
                 ],
                 [
-                    'genrename' =>'アニメ/ヒーロー',
+                    'genrename'=>'アニメ/ヒーロー',
                 ],
                 [
-                    'genrename' =>'報道/情報/ドキュメント',
+                    'genrename'=>'報道/情報/ドキュメント',
                 ],
                 [
-                    'genrename' =>'スポーツ',
+                    'genrename'=>'スポーツ',
                 ],
                 [
-                    'genrename' =>'料理/旅/暮らし',
+                    'genrename'=>'料理/旅/暮らし',
                 ],
             ]);
     }

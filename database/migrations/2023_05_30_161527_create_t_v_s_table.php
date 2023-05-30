@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('time');
             $table->string('content');
             $table->string('url');
+            $table->foreignId('genre_id')->constrained('genres');
             $table->timestamps();
         });
     }

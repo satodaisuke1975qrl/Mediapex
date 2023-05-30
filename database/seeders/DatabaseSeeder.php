@@ -15,12 +15,12 @@ class DatabaseSeeder extends Seeder
         // 追加のシーダー呼び出し
         // DatabaseSeederの中でそれぞれのシーダーファイルを呼び出す
         $this->call([
-            TVSeeder::class,
             ContactsSeeder::class,
             UserSeeder::class,
             CafeSeeder::class,
             AudienceSeeder::class,
             GenresSeeder::class,
+            TVSeeder::class,
             InitializeCoachesAndTeamsSeeder::class,
             InitializePlayersTableSeeder::class,
             // 各テーブルのデータを入れてから中間のテーブルのダミーを入れる

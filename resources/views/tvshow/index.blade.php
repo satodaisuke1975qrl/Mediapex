@@ -51,7 +51,13 @@
 
 
     @can('general')
-          <form action="{{ route('tvshow.bbs')}}" method="get" text-align: right>
+
+    <a href="{{ route('tvshow.bbs')}}">
+    <img src="{{asset('photo.jpg')}}">
+    </a>
+    <form action="{{ route('tvshow.bbs')}}" method="get" text-align: right>
+
+
                 <button>感想広場</button>
           </form>
 

@@ -33,7 +33,7 @@
 <div class="flex justify-around">
     <div>
         @can('admin')
-        <input type="button" value="編集" onclick="location.href='{{ route('tvshow.edit', $tv->id) }}'" class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-20 focus:outline-none hover:bg-blue-600 rounded text-md">
+        <input type="button" value="編集" onclick="location.href='{{ route('tvshow.edit', $tv->id) }}'" class="flex mx-auto text-white bg-green-500 border-0 py-2 px-20 focus:outline-none hover:bg-green-600 rounded text-md">
         @endcan
     </div>
     <div>

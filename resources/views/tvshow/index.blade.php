@@ -4,6 +4,15 @@
         <div class="flex justify-between">
             <a href="https://www.tv-asahi.co.jp/" target="_blank" class="w-30 h-20"><img src="https://seekvectorlogo.com/wp-content/uploads/2022/01/tv-asahi-vector-logo.png" class="w-30 h-20" /></a>
 
+            {{-- 管理者権限 --}}
+            @can('admin')
+            <form action="{{ route('tvshow.create') }}">
+                <button
+                    class="flex mx-auto text-white bg-red-500 border-0 py-2 px-20 focus:outline-none hover:bg-red-600 rounded text-md">新規入力</button>
+            </form>
+            @endcan
+
+            {{-- 一般ユーザー --}}
             @can('general')
             <a href="{{ route('tvshow.bbs')}}">
             <img src="{{asset('img/photo.jpg')}}" class="w-30 h-20">
@@ -37,7 +46,7 @@
                     <td class="px-4 py-3">
                         <div class="flex flex-row">
                             <div><a href= "{{$tv->url}}" >{{ $tv->title }}</a></div>
-                            <div><img src="{{asset('img/link.jpeg')}}" class="ml-2 w-5 h-4"></div>
+                            <div><img src="{{asset('img/link2.png')}}" class="ml-2 w-4 h-7"></div>
                         </div>
                         </td>
                     @endif
@@ -53,14 +62,4 @@
             @endforeach
         </tbody>
     </table>
-
-    <br>
-
-    {{-- 管理者でログインした場合のみ新規入力ボタンを表示 --}}
-    @can('admin')
-        <form action="{{ route('tvshow.create') }}">
-            <button
-                class="flex mx-auto text-white bg-red-500 border-0 py-2 px-20 focus:outline-none hover:bg-red-600 rounded text-md">新規入力</button>
-        </form>
-    @endcan
 </x-app-layout>

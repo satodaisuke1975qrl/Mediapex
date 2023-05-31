@@ -6,7 +6,7 @@
 
             @can('general')
             <a href="{{ route('tvshow.bbs')}}">
-            <img src="{{asset('img/photo.jpg')}}" class="w-30 h-20">
+            <img src="{{asset('img/photo.jpg')}}" class="w-40 h-30">
             </a>
             @endcan
 

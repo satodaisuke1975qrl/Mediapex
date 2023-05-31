@@ -10,21 +10,21 @@
 
     <div class="p-0 w-full">
         <div class="relative">
-            <label for="name" class="font-black px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">放送時間</label>
+            <label for="name" class="font-black px-4 py-3 title-font tracking-wider font-bold text-gray-900 text-sm bg-gray-100">放送時間</label>
             <div class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">{{ $tv->time }}</div>
         </div>
     </div>
 
     <div class="p-0 w-full">
         <div class="relative">
-            <label for="name" class="font-black px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">番組名（ジャンル）</label>
+            <label for="name" class="font-black px-4 py-3 title-font tracking-wider font-bold text-gray-900 text-sm bg-gray-100">番組名（ジャンル）</label>
             <div class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">{{ $tv->title }} ({{ $tv->genre->genrename }})</div>
         </div>
     </div>
 
     <div class="p-0 w-full">
         <div class="relative">
-            <label for="name" class="font-black px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">番組概要</label>
+            <label for="name" class="font-black px-4 py-3 title-font tracking-wider font-bold text-gray-900 text-sm bg-gray-100">番組概要</label>
             <div class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">{{ $tv->content }}</div>
         </div>
     </div>

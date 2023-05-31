@@ -29,10 +29,10 @@
 
         <thead>
             <tr>
-                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">放送時間</th>
-                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">番組名</th>
-                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">ジャンル</th>
-                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100"></th>
+                <th class="px-4 py-3 title-font tracking-wider font-bold text-gray-900 text-sm bg-gray-100">放送時間</th>
+                <th class="px-4 py-3 title-font tracking-wider font-bold text-gray-900 text-sm bg-gray-100">番組名</th>
+                <th class="px-4 py-3 title-font tracking-wider font-bold text-gray-900 text-sm bg-gray-100">ジャンル</th>
+                <th class="px-4 py-3 title-font tracking-wider font-bold text-gray-900 text-sm bg-gray-100"></th>
             </tr>
         </thead>
         <tbody>

@@ -11,7 +11,8 @@ class TVController extends Controller
     public function index()
     {
         $tvs = TV::all();
-        return view('tvshow.index', compact('tvs'));
+        $genre = TV::with('genre');
+        return view('tvshow.index', compact('tvs' , 'genre'));
     }
 
     public function bbs()
@@ -37,15 +38,14 @@ class TVController extends Controller
         $validateData = $request->validate([
             'title' => ['required', 'min:2', 'max:50'],
             'time' => ['required'],
-            'content' => ['required', 'min:2', 'max:100'],
-            // 'genre_id' => ['required', 'min:1', 'max:5']
+            'content' => ['required', 'min:2', 'max:50'],
             ]);
 
         $tv = new TV;
         $tv->title = $request->title;
         $tv->time = $request->time;
         $tv->content = $request->content;
-        // $tv->genre_id = $request->genre_id;
+        $tv->genre_id = $request->genre_id;
 
         $tv->save();
 
@@ -72,7 +72,10 @@ class TVController extends Controller
     public function show(string $id)
     {
         $tv = TV::find($id);
-        return view('tvshow.show', compact('tv'));
+
+        $genre = TV::with('genre')->where('id', $id);
+
+        return view('tvshow.show', compact('tv' , 'genre'));
     }
 
     /**
@@ -102,7 +105,7 @@ class TVController extends Controller
         $tv->title = $request->title;
         $tv->time = $request->time;
         $tv->content = $request->content;
-        // $tv->genre_id = $request->genre_id;
+        $tv->genre_id = $request->genre_id;
 
 
         $tv->save();

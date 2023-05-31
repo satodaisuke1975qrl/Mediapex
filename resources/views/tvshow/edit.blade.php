@@ -1,4 +1,10 @@
-<h1>edit</h1>
+<x-app-layout>
+    <x-slot name="header" class="">
+        <a href="https://www.tv-asahi.co.jp/" target="_blank"><img src="https://seekvectorlogo.com/wp-content/uploads/2022/01/tv-asahi-vector-logo.png" class="w-30 h-20" /></a>
+        <h2 class="font-bold text-xl text-gray-800 leading-tight">
+            編集画面
+        </h2>
+    </x-slot>
 
 <form action="{{ route('tvshow.update' , $tv->id) }}" method="post">
     @csrf
@@ -20,7 +26,7 @@
     <div>
         <label for="content">番組内容</label>
             <input type="hidden" name="mode" value="check">
-            <textarea name="content" cols="50" rows="5"><?php print( $tv -> content ); ?></textarea>
+            <textarea name="content" cols="50" rows="5"><?php print( $tv->content ); ?></textarea>
         {{-- <textarea type="text" id="content" name="content" value="{{ $tv->content }}"></textarea> --}}
         {{-- <input type="text" id="content" name="content" value="{{ $tv->content }}"> --}}
         @if ($errors->has('content'))
@@ -34,3 +40,5 @@
 </form>
 
 <input type="button" value="戻る" onclick="location.href='{{ route('tvshow.show' , $tv->id ) }}'">
+
+</x-app-layout>

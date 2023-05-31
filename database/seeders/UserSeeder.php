@@ -17,12 +17,21 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $user = [
-            'name' => 'Matty',
-            'email' => 'matty@test.com',
-            'password' => Hash::make('the1975uk'),
+            [
+                'name' => 'Matty',
+                'email' => 'matty@test.com',
+                'password' => Hash::make('the1975uk'),
+                'role_id' => 10
+            ],
+            [
+                'name' => 'tanaka',
+                'email' => 'tanaka@test.com',
+                'password' => Hash::make('tanaka'),
+                'role_id' => 1
+            ]
         ];
 
-        DB::table('users') -> insert($user);
+        DB::table('users')->insert($user);
 
         event(new Registered($user));
     }

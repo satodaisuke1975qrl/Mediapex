@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <x-slot name="header" class="">
+    <x-slot name="header">
         <div class="flex justify-between">
             <a href="https://www.tv-asahi.co.jp/" target="_blank" class="w-30 h-20"><img src="https://seekvectorlogo.com/wp-content/uploads/2022/01/tv-asahi-vector-logo.png" class="w-30 h-20" /></a>
 
@@ -15,7 +15,7 @@
             {{-- 一般ユーザー --}}
             @can('general')
             <a href="{{ route('tvshow.bbs')}}">
-            <img src="{{asset('img/photo.jpg')}}" class="w-40 h-30">
+            <img src="{{ asset('img/photo.jpg') }}" class="w-40 h-30">
             </a>
             @endcan
 
@@ -25,7 +25,7 @@
         </h2>
     </x-slot>
 
-    <table class="table-auto w-full text-left whitespace-no-wrap">
+    <table class="table-auto w-full text-left">
 
         <thead>
             <tr>

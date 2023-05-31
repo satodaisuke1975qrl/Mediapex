@@ -53,7 +53,9 @@
     @can('general')
 
     <a href="{{ route('tvshow.bbs')}}">
-    <img src="{{asset('photo.jpg')}}">
+    {{-- <img src="{{asset('photo.jpg')}}"> --}}
+    <img src="{{asset('img/photo.jpg')}}">
+
     </a>
     <form action="{{ route('tvshow.bbs')}}" method="get" text-align: right>
 

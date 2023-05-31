@@ -30,7 +30,7 @@
         <span class="m-2"><input type="time" id="time" name="time" value="{{ old('time')}}" class="mt-2 mb-10"></span>
     </div>
     <div class="flex flex-col">
-        <label for="content" class="ml-5 font-bold">番組情報</label>
+        <label for="content" class="ml-5 font-bold">番組概要</label>
         <span class="m-2"><textarea type="textbox" id="content" name="content" value="{{ old('content')}}" class="mb-10 mt-2 block w-full shadow-sm"></textarea></span>
     </div><br>
     <div class="flex justify-around">

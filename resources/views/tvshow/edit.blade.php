@@ -36,7 +36,7 @@
         <span class="m-2"><input type="time" id="time" name="time" value="{{ $tv->time }}"></span>
     </div>
     <div class="flex flex-col">
-        <label for="content" class="mt-5 ml-5 font-bold">番組内容</label>
+        <label for="content" class="mt-5 ml-5 font-bold">番組概要</label>
             <input type="hidden" name="mode" value="check">
             <span class="m-2"><textarea name="content" cols="50" rows="5"><?php print( $tv->content ); ?></textarea></span>
         {{-- <textarea type="text" id="content" name="content" value="{{ $tv->content }}"></textarea> --}}

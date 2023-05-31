@@ -154,7 +154,11 @@ return [
     */
 
     'attributes' => [
-        'name' => 'お名前'
+        'name' => 'お名前',
+        'title' => '番組名',
+        'time' => '放送時間',
+        'content' => '番組概要',
+        'genrename' => 'ジャンル'
     ],
 
 ];

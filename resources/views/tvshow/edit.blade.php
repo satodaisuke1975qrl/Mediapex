@@ -33,12 +33,11 @@
         <p class="error">*{{ $errors->first('content') }}</p>
        @endif
     </div>
-    <div>
-        {{-- <input type="button" value="更新する" onclick="location.href='{{ route('tvshow.index' , $tv->id ) }}'"> --}}
-        <input type="submit" value="更新する">
+    <div class="flex justify-around">
+        <input type="submit" value="更新する" class="flex mx-auto text-white bg-green-500 border-0 py-2 px-20 focus:outline-none hover:bg-green-600 rounded text-md">
+
+        <input type="button" value="戻る" onclick="location.href='{{ route('tvshow.show' , $tv->id ) }}'" class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-20 focus:outline-none hover:bg-blue-600 rounded text-md">
     </div>
 </form>
-
-<input type="button" value="戻る" onclick="location.href='{{ route('tvshow.show' , $tv->id ) }}'">
 
 </x-app-layout>

@@ -51,12 +51,9 @@
 
 
     @can('general')
-        <form action="{{ route('tvshow.create') }}">    
           <form action="{{ route('tvshow.bbs')}}" method="get" text-align: right>
                 <button>感想広場</button>
           </form>
-            
-        </form>
 
 
     @endcan

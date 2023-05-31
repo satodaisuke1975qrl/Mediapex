@@ -29,13 +29,12 @@
         <p class="error">*{{ $errors->first('content') }}</p>
        @endif
     </div>
-    <div>
+    <div class="flex justify-around">
         <form action="{{ route('tvshow.index' )}}">
-            <button>送信</button>
+            <button class="flex mx-auto text-white bg-green-500 border-0 py-2 px-20 focus:outline-none hover:bg-green-600 rounded text-md">送信</button>
         </form>
-    </div>
-    <div>
-    <input type="button" value="戻る" onclick="location.href='{{ route('tvshow.index')}}'">
+
+    <input type="button" value="戻る" onclick="location.href='{{ route('tvshow.index')}}'" class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-20 focus:outline-none hover:bg-blue-600 rounded text-md">
 
     {{-- <input type="submit" value="送信"> --}}
     </div>

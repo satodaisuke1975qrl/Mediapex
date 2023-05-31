@@ -8,9 +8,15 @@
 
 
 @foreach ($bbs as $bb)
-    {{ $bb->time }}
-    <div>{{ $bb->u_name }}>>
-    {{ $bb->message }}</div>
+    <div class="font-bold">
+        <div>
+            {{ $bb->time }}
+        </div>
+    </div>
+        <div>
+            {{ $bb->u_name }} >> {{ $bb->message }}
+        </div>
+
 @endforeach
 
 <br>
@@ -22,12 +28,12 @@
         @csrf
         <div class="flex flex-col">
             <label class="font-bold">名前</label>
-            <input class="mr-40" type="text" name="u_name">
+            <input class="mt-2 mb-10" type="text" name="u_name">
         </div>
         <br>
         <div class="flex flex-col">
             <label class="font-bold">本文</label>
-            <textarea class="border" name="message"></textarea>
+            <textarea class="mt-2 block w-full shadow-sm" name="message"></textarea>
         </div>
         <br>
         <div class="flex justify-around">

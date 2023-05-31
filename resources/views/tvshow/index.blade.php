@@ -45,8 +45,8 @@
                     @else
                     <td class="px-4 py-3">
                         <div class="flex flex-row">
-                            <div><a href= "{{$tv->url}}" >{{ $tv->title }}</a></div>
-                            <div><img src="{{asset('img/link2.png')}}" class="ml-2 w-4 h-7"></div>
+                            <div>{{ $tv->title }}</div>
+                            <div><a href="{{$tv->url}}"><img src="{{asset('img/link2.png')}}" class="ml-2 w-4 h-7"></a></div>
                         </div>
                         </td>
                     @endif

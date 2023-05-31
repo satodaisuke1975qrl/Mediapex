@@ -17,7 +17,7 @@
     </div>
 
     <div class="flex flex-col">
-        <label for="title" class="mt-5 ml-5 font-bold">番組タイトル</label>
+        <label for="title" class="mt-5 ml-5 font-bold">番組名</label>
         <span class="m-2"><input type="text" size="40" id="title" name="title" value="{{ $tv->title }}"></span>
     </div>
     <div class="flex flex-col">

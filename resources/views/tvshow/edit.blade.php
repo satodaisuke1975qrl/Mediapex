@@ -9,15 +9,15 @@
 <form action="{{ route('tvshow.update' , $tv->id) }}" method="post">
     @csrf
     @method('put')
-    <div>
-        <label for="title">番組タイトル</label>
-        <input type="text" size="40" id="title" name="title" value="{{ $tv->title }}">
+    <div class="flex flex-col">
+        <label for="title" class="mt-5 ml-5 font-bold">番組タイトル</label>
+        <span class="m-2"><input type="text" size="40" id="title" name="title" value="{{ $tv->title }}"></span>
         @if ($errors->has('title'))
         <p class="error">*{{ $errors->first('title') }}</p>
        @endif
     </div>
-    <div>
-        <label for="title">ジャンル</label><br>
+    <div　class="flex flex-col">
+        <label for="title"　class="mt-5 ml-5 font-bold">ジャンル</label><br>
         @foreach($genres as $genre)
             <lavel><input type="radio" id="{{ $genre->id }}" name="genrename" value="{{ $genre->id }}" @if($tv->genre_id == $genre->id)checked @endif> {{ $genre->genrename }} </label>
             {{-- key:name value:value やからnameを引っ張ったら自然と数字がついてくる--}}
@@ -27,24 +27,25 @@
         <p class="error">*{{ $errors->first('{{ $genre->genrename }}') }}</p>
         @endif --}}
     </div><br>
-    <div>
-        <label for="time">放送時間</label>
-        <input type="time" id="time" name="time" value="{{ $tv->time }}">
+    <div class="flex flex-col">
+        <label for="time" class="mt-5 ml-5 font-bold">放送時間</label>
+        <span class="m-2"><input type="time" id="time" name="time" value="{{ $tv->time }}"></span>
+
         @if ($errors->has('time'))
         <p class="error">*{{ $errors->first('time') }}</p>
        @endif
     </div>
-    <div>
-        <label for="content">番組内容</label>
+    <div class="flex flex-col">
+        <label for="content" class="mt-5 ml-5 font-bold">番組内容</label>
             <input type="hidden" name="mode" value="check">
-            <textarea name="content" cols="50" rows="5"><?php print( $tv->content ); ?></textarea>
+            <span class="m-2"><textarea name="content" cols="50" rows="5"><?php print( $tv->content ); ?></textarea></span>
         {{-- <textarea type="text" id="content" name="content" value="{{ $tv->content }}"></textarea> --}}
         {{-- <input type="text" id="content" name="content" value="{{ $tv->content }}"> --}}
         @if ($errors->has('content'))
         <p class="error">*{{ $errors->first('content') }}</p>
        @endif
     </div>
-    <div class="flex justify-around">
+    <div class="flex justify-around mt-10">
         <input type="submit" value="更新する" class="flex mx-auto text-white bg-green-500 border-0 py-2 px-20 focus:outline-none hover:bg-green-600 rounded text-md">
 
         <input type="button" value="戻る" onclick="location.href='{{ route('tvshow.show' , $tv->id ) }}'" class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-20 focus:outline-none hover:bg-blue-600 rounded text-md">

@@ -8,9 +8,16 @@
 
 
 @foreach ($bbs as $bb)
-    {{ $bb->time }}
-    <div>{{ $bb->u_name }}>>
-    {{ $bb->message }}</div>
+<div class="my-5 ml-2">
+    <div class="font-bold">
+        <div>
+            {{ $bb->time }}
+        </div>
+    </div>
+        <div>
+            {{ $bb->u_name }} >> {{ $bb->message }}
+        </div>
+</div>
 @endforeach
 
 <br>
@@ -21,13 +28,13 @@
     <form action="{{ route('tvshow.bbsstore') }}" method="post">
         @csrf
         <div class="flex flex-col">
-            <label class="font-bold">名前</label>
-            <input class="mr-40" type="text" name="u_name">
+            <label class="ml-5 font-bold">名前</label>
+            <span class="m-2"><input class="mt-2 mb-10" type="text" name="u_name"></span>
         </div>
         <br>
         <div class="flex flex-col">
-            <label class="font-bold">本文</label>
-            <textarea class="border" name="message"></textarea>
+            <label class="ml-5 font-bold">感想</label>
+            <span class="m-2"><textarea class="mt-2 block w-full shadow-sm" name="message"></textarea></span>
         </div>
         <br>
         <div class="flex justify-around">

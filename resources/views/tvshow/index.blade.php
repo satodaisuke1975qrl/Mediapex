@@ -1,7 +1,25 @@
 <x-app-layout>
 
     <x-slot name="header" class="">
-        <a href="https://www.tv-asahi.co.jp/" target="_blank" class="w-30 h-20"><img src="https://seekvectorlogo.com/wp-content/uploads/2022/01/tv-asahi-vector-logo.png" class="w-30 h-20" /></a>
+        <div class="flex justify-between">
+            <a href="https://www.tv-asahi.co.jp/" target="_blank" class="w-30 h-20"><img src="https://seekvectorlogo.com/wp-content/uploads/2022/01/tv-asahi-vector-logo.png" class="w-30 h-20" /></a>
+
+            {{-- 管理者権限 --}}
+            @can('admin')
+            <form action="{{ route('tvshow.create') }}">
+                <button
+                    class="flex mx-auto text-white bg-red-500 border-0 py-2 px-20 focus:outline-none hover:bg-red-600 rounded text-md">新規入力</button>
+            </form>
+            @endcan
+
+            {{-- 一般ユーザー --}}
+            @can('general')
+            <a href="{{ route('tvshow.bbs')}}">
+            <img src="{{asset('img/photo.jpg')}}" class="w-40 h-30">
+            </a>
+            @endcan
+
+        </div>
         <h2 class="font-bold text-xl text-gray-800 leading-tight">
             5/31（水）番組一覧
         </h2>
@@ -24,7 +42,13 @@
 
                     @if ($tv->url =='nullable')
                     <td class="px-4 py-3">{{ $tv->title }}</td>
-                    @else <td class="px-4 py-3"><a href= "{{$tv->url}}" >{{ $tv->title }}</a></td>
+                    @else
+                    <td class="px-4 py-3">
+                        <div class="flex flex-row">
+                            <div>{{ $tv->title }}</div>
+                            <div><a href="{{$tv->url}}"><img src="{{asset('img/link2.png')}}" class="ml-2 w-4 h-7"></a></div>
+                        </div>
+                        </td>
                     @endif
 
                     <td class="px-4 py-3">{{ $tv->genre->genrename }}</td>
@@ -38,23 +62,5 @@
             @endforeach
         </tbody>
     </table>
-
     <br>
-
-    {{-- 管理者でログインした場合のみ新規入力ボタンを表示 --}}
-    @can('admin')
-        <form action="{{ route('tvshow.create') }}">
-            <button
-                class="flex mx-auto text-white bg-red-500 border-0 py-2 px-20 focus:outline-none hover:bg-red-600 rounded text-md">新規入力</button>
-        </form>
-    @endcan
-
-
-    @can('general')
-          <form action="{{ route('tvshow.bbs')}}" method="get" text-align: right>
-                <button>感想広場</button>
-          </form>
-
-
-    @endcan
 </x-app-layout>

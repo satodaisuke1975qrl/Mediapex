@@ -8,15 +8,16 @@
 
 <form action="{{ route('tvshow.store') }}" method="post">
     @csrf
-    <div>
-        <label for="title">番組タイトル</label><br>
-        <input type="text" size="40" id="title" name="title" value="{{ old('title')}}">
+
+    <div class="flex flex-col">
+        <label for="title" class="mt-5 ml-5 font-bold">番組タイトル</label>
+        <span class="m-2"><input type="text" size="40" id="title" name="title" value="{{ old('title')}}" class="mt-2 mb-10"></span>
         @if ($errors->has('title'))
         <p class="error">*{{ $errors->first('title') }}</p>
-       @endif
-    </div><br>
-    <div>
-        <label for="title">ジャンル</label><br>
+        @endif
+    </div>
+    <div　class="flex flex-col">
+        <label for="title"　class="mt-5 ml-5 font-bold">ジャンル</label><br>
         @foreach($genres as $genre)
             <lavel><input type="radio" id="{{ $genre->id }}" name="genrename" value="{{ $genre->id }}" @if(old('genrename') == $genre->id)checked @endif> {{ $genre->genrename }} </label>
         @endforeach
@@ -24,16 +25,16 @@
         <p class="error">*{{ $errors->first('genrename') }}</p>
         @endif
     </div><br>
-    <div>
-        <label for="time">放送時間</label><br>
-        <input type="time" id="time" name="time" value="{{ old('time')}}">
+    <div class="flex flex-col">
+        <label for="time" class="ml-5 font-bold">放送時間</label>
+        <span class="m-2"><input type="time" id="time" name="time" value="{{ old('time')}}" class="mt-2 mb-10"></span>
         @if ($errors->has('time'))
         <p class="error">*{{ $errors->first('time') }}</p>
        @endif
-    </div><br>
-    <div>
-        <label for="content">番組情報</label><br>
-        <textarea type="textbox" id="content" name="content" value="{{ old('content')}}"></textarea>
+    </div>
+    <div class="flex flex-col">
+        <label for="content" class="ml-5 font-bold">番組情報</label>
+        <span class="m-2"><textarea type="textbox" id="content" name="content" value="{{ old('content')}}" class="mb-10 mt-2 block w-full shadow-sm"></textarea></span>
         @if ($errors->has('content'))
         <p class="error">*{{ $errors->first('content') }}</p>
        @endif

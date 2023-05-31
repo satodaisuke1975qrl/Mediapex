@@ -9,12 +9,16 @@
 <form action="{{ route('tvshow.update' , $tv->id) }}" method="post">
     @csrf
     @method('put')
+
+    <div class="text-red-500 font-bold">
+        @foreach($errors->all() as $error)
+            <p class="error">*{{ $error }}</p>
+        @endforeach
+    </div>
+
     <div class="flex flex-col">
         <label for="title" class="mt-5 ml-5 font-bold">番組タイトル</label>
         <span class="m-2"><input type="text" size="40" id="title" name="title" value="{{ $tv->title }}"></span>
-        @if ($errors->has('title'))
-        <p class="error">*{{ $errors->first('title') }}</p>
-       @endif
     </div>
     <div class="flex flex-col">
         <label for="title" class="mt-5 ml-5 font-bold">ジャンル</label><br>
@@ -30,10 +34,6 @@
     <div class="flex flex-col">
         <label for="time" class="mt-5 ml-5 font-bold">放送時間</label>
         <span class="m-2"><input type="time" id="time" name="time" value="{{ $tv->time }}"></span>
-
-        @if ($errors->has('time'))
-        <p class="error">*{{ $errors->first('time') }}</p>
-       @endif
     </div>
     <div class="flex flex-col">
         <label for="content" class="mt-5 ml-5 font-bold">番組内容</label>
@@ -41,9 +41,6 @@
             <span class="m-2"><textarea name="content" cols="50" rows="5"><?php print( $tv->content ); ?></textarea></span>
         {{-- <textarea type="text" id="content" name="content" value="{{ $tv->content }}"></textarea> --}}
         {{-- <input type="text" id="content" name="content" value="{{ $tv->content }}"> --}}
-        @if ($errors->has('content'))
-        <p class="error">*{{ $errors->first('content') }}</p>
-       @endif
     </div>
     <div class="flex justify-around mt-10">
         <input type="submit" value="更新する" class="flex mx-auto text-white bg-green-500 border-0 py-2 px-20 focus:outline-none hover:bg-green-600 rounded text-md">

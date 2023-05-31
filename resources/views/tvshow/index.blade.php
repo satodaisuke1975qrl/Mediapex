@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header" class="">
-        <a href="https://www.tv-asahi.co.jp/" target="_blank"><img src="https://seekvectorlogo.com/wp-content/uploads/2022/01/tv-asahi-vector-logo.png" class="w-30 h-20" /></a>
+        <a href="https://www.tv-asahi.co.jp/" target="_blank" class="w-30 h-20"><img src="https://seekvectorlogo.com/wp-content/uploads/2022/01/tv-asahi-vector-logo.png" class="w-30 h-20" /></a>
         <h2 class="font-bold text-xl text-gray-800 leading-tight">
             5/31（水）番組一覧
         </h2>
@@ -47,5 +47,14 @@
             <button
                 class="flex mx-auto text-white bg-red-500 border-0 py-2 px-20 focus:outline-none hover:bg-red-600 rounded text-md">新規入力</button>
         </form>
+    @endcan
+
+    @can('general')
+        <form action="{{ route('tvshow.create') }}">
+            <div class="px-8 py-12 flex justify-center">
+                <img class="mt-6 rounded-lg shadow-xl" src="/img/photo.jpg" alt="">
+            </div>
+        </form>
+
     @endcan
 </x-app-layout>

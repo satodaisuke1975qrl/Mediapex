@@ -52,6 +52,20 @@ class TVController extends Controller
         return redirect('tvshow');
     }
 
+    public function bbsstore(Request $request)
+    {
+        // dd($request);
+        $bbs = new Threaad;
+        $bbs->time = date("Y/m/d H:i:s");
+        $bbs->u_name = $request->u_name;
+        $bbs->message = $request->message;
+        // $tv->genre_id = $request->genre_id;
+
+        $bbs->save();
+
+        return redirect('tvshow/bbs');
+    }
+
     /**
      * Display the specified resource.
      */

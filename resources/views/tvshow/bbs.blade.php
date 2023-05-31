@@ -1,29 +1,27 @@
-感想広場
+<h1>感想広場</h1>
+
 
 @foreach ($bbs as $bb)
-    <div>{{ $bb->u_name }} {{ $bb->message_title }}</div>
-    <div>{{ $bb->message }}</div>
+    {{ $bb->time }}
+    <div>{{ $bb->u_name }}>>
+    {{ $bb->message }}</div>
 @endforeach
-<form action="{{ route('tvshow.destroy',$bb->id)}}" method="post">
-    @csrf
-    @method('delete')
-    <input type="submit" value="削除">
-</form>
+<input type="button" value="戻る" onclick="location.href='{{ route('tvshow.index')}}'">
+
+<br>
 <hr>
+<br>
 
 <div>
-    <form action="" method="POST">
+    <form action="{{ route('tvshow.bbsstore') }}" method="post">
         @csrf
         <div>
-            <p class="font-bold">名前</p>
+            <label class="font-bold">名前</label>
             <input class="border rounded px-2 ml-2" type="text" name="u_name">
         </div>
+
         <div>
-            <p class="font-bold">件名</p>
-            <input class="border rounded px-2 ml-2 flex-auto" type="text" name="message_title">
-        </div>
-        <div>
-            <p class="font-bold">本文</p>
+            <label class="font-bold">本文</label>
             <textarea class="border" name="message"></textarea>
         </div>
         <div>

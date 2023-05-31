@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('threaads', function (Blueprint $table) {
             $table->id();
+            $table->string('time');
             $table->string('u_name');
-            $table->string('message_title');
             $table->string('message');
             $table->timestamps();
         });

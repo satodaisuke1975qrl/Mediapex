@@ -15,9 +15,9 @@ class BSSSeeder extends Seeder
     {
         DB::table('threaads')->insert(
         [
+        'time' => '2023/05/31 06:43:33',
         'u_name' => '牧瀬',
-        'message_title' => 'テスト',
-        'message' => 'おもろい'
+        'message' => '今日の番組おもろい'
         ]
         );
     }

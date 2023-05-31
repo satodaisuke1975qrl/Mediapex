@@ -185,9 +185,17 @@ Route::get('player', function () {
     }
 });
 
+
+Route::get('tvshow/bbs', [
+    TVController::class, 'bbs'
+    ])->name('tvshow.bbs');
+
+Route::post('tvshow/bbs/bbsstore', [
+    TVController::class, 'bbsstore'
+    ])->name('tvshow.bbsstore');
+
+Route::get('tvshow/bbs/bbsstore', [
+    TVController::class, 'bbs'
+    ])->name('tvshow.bbsstore');
+
 Route::resource('tvshow', TVController::class);
-
-Route::get('tvshow/bbs', function(){
-    return view('tvshow.bbs');
-})->name('tvshow.bbs');
-

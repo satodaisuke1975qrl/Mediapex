@@ -2,8 +2,12 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             番組一覧
+            <form action="{{ route('tvshow.bbs')}}" method="get" text-align: right>
+                <button>感想広場</button>
+            </form>
         </h2>
     </x-slot>
+
 
 <table class="table-auto w-full text-left whitespace-no-wrap">
 
@@ -29,9 +33,6 @@
 </tbody>
 </table>
 
-<form action="{{ route('tvshow.bbs')}}" method="get">
-    <button>感想入力</button>
-</form>
 
 <form action="{{ route('tvshow.create')}}">
     <button>新規入力</button>

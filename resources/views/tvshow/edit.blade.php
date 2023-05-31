@@ -17,6 +17,17 @@
        @endif
     </div>
     <div>
+        <label for="title">ジャンル</label><br>
+        @foreach($genres as $genre)
+            <lavel><input type="radio" id="{{ $genre->id }}" name="genrename" value="{{ $genre->id }}" @if($tv->genre_id == $genre->id)checked @endif> {{ $genre->genrename }} </label>
+            {{-- key:name value:value やからnameを引っ張ったら自然と数字がついてくる--}}
+            {{-- バリデーション保持 value="{{ $genre->genrename }}" {{ old('{{ $genre->genrename }}') == $genre->genrename ? 'checked' : '' }} --}}
+        @endforeach
+        {{-- @if ($errors->has('{{ $genre->genrename }}'))
+        <p class="error">*{{ $errors->first('{{ $genre->genrename }}') }}</p>
+        @endif --}}
+    </div><br>
+    <div>
         <label for="time">放送時間</label>
         <input type="time" id="time" name="time" value="{{ $tv->time }}">
         @if ($errors->has('time'))

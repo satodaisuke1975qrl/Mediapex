@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TV;
+use App\Models\Genre;
 use App\Models\Threaad;
 
 class TVController extends Controller
@@ -26,7 +27,8 @@ class TVController extends Controller
      */
     public function create(Request $request)
     {
-        return view('tvshow.create', compact('request'));
+        $genres = Genre::all();
+        return view('tvshow.create', compact('genres','request'));
     }
 
     /**
@@ -39,13 +41,15 @@ class TVController extends Controller
             'title' => ['required', 'min:2', 'max:50'],
             'time' => ['required'],
             'content' => ['required', 'min:2', 'max:50'],
+            'genrename' => ['required']
             ]);
 
         $tv = new TV;
         $tv->title = $request->title;
         $tv->time = $request->time;
         $tv->content = $request->content;
-        $tv->genre_id = $request->genre_id;
+        $tv->genre_id = $request->genrename;
+        // genrenameのvalueであるgenreのidが入る
 
         $tv->save();
 
@@ -72,7 +76,6 @@ class TVController extends Controller
     public function show(string $id)
     {
         $tv = TV::find($id);
-
         $genre = TV::with('genre')->where('id', $id);
 
         return view('tvshow.show', compact('tv' , 'genre'));
@@ -84,8 +87,10 @@ class TVController extends Controller
     public function edit(string $id)
     {
         $tv = TV::find($id);
+        $genres = Genre::all();
+        $genre = TV::with('genre');
 
-        return view('tvshow.edit', compact('tv'));
+        return view('tvshow.edit', compact('tv','genres','genre'));
     }
 
     /**
@@ -105,7 +110,7 @@ class TVController extends Controller
         $tv->title = $request->title;
         $tv->time = $request->time;
         $tv->content = $request->content;
-        $tv->genre_id = $request->genre_id;
+        $tv->genre_id = $request->genrename;
 
 
         $tv->save();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TV;
+use App\Models\Threaad;
 
 class TVController extends Controller
 {
@@ -12,6 +13,12 @@ class TVController extends Controller
         $tvs = TV::all();
         $genre = TV::with('genre');
         return view('tvshow.index', compact('tvs' , 'genre'));
+    }
+
+    public function bbs()
+    {
+        $bbs = Threaad::all();
+        return view('tvshow.bbs', compact('bbs'));
     }
 
     /**
@@ -45,12 +52,27 @@ class TVController extends Controller
         return redirect('tvshow');
     }
 
+    public function bbsstore(Request $request)
+    {
+        // dd($request);
+        $bbs = new Threaad;
+        $bbs->time = date("Y/m/d H:i:s");
+        $bbs->u_name = $request->u_name;
+        $bbs->message = $request->message;
+        // $tv->genre_id = $request->genre_id;
+
+        $bbs->save();
+
+        return redirect('tvshow/bbs');
+    }
+
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
         $tv = TV::find($id);
+
         $genre = TV::with('genre')->where('id', $id);
 
         return view('tvshow.show', compact('tv' , 'genre'));

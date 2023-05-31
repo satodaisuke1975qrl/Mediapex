@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
         // 追加のシーダー呼び出し
         // DatabaseSeederの中でそれぞれのシーダーファイルを呼び出す
         $this->call([
+
+            BSSSeeder::class,
             ContactsSeeder::class,
             UserSeeder::class,
             CafeSeeder::class,

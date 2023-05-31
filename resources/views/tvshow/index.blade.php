@@ -1,11 +1,11 @@
 <x-app-layout>
+
     <x-slot name="header" class="">
         <a href="https://www.tv-asahi.co.jp/" target="_blank" class="w-30 h-20"><img src="https://seekvectorlogo.com/wp-content/uploads/2022/01/tv-asahi-vector-logo.png" class="w-30 h-20" /></a>
         <h2 class="font-bold text-xl text-gray-800 leading-tight">
             5/31（水）番組一覧
         </h2>
     </x-slot>
-
 
     <table class="table-auto w-full text-left whitespace-no-wrap">
 
@@ -49,12 +49,15 @@
         </form>
     @endcan
 
+
     @can('general')
-        <form action="{{ route('tvshow.create') }}">
-            <div class="px-8 py-12 flex justify-center">
-                <img class="mt-6 rounded-lg shadow-xl" src="/img/photo.jpg" alt="">
-            </div>
+        <form action="{{ route('tvshow.create') }}">    
+          <form action="{{ route('tvshow.bbs')}}" method="get" text-align: right>
+                <button>感想広場</button>
+          </form>
+            
         </form>
+
 
     @endcan
 </x-app-layout>

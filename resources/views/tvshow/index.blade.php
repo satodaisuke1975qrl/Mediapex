@@ -60,6 +60,7 @@
                     </td>
                 </tr>
             @endforeach
+            <br>
         </tbody>
     </table>
 </x-app-layout>
